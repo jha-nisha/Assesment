@@ -1,0 +1,4 @@
+com/pingidentity/spring/example/config/OAuth2SecurityConfigurerAdapter.class
+com/pingidentity/spring/example/UserRegistrationApplication.class
+com/pingidentity/spring/example/controllers/PasswordController.class
+com/pingidentity/spring/example/controllers/RegistrationController.class
