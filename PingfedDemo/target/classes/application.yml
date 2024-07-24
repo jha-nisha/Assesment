@@ -1,0 +1,53 @@
+server:
+  port: 8080
+  ssl:
+    key-store-type: <key store type>
+    key-store: <path to key>
+    key-store-password: <key store password>
+    key-alias: <key alias>
+    enabled: false
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.security.oauth2: INFO
+    org.springframework.boot.autoconfigure: INFO
+
+ping:
+  environmentId: 8f69b3f5-7764-4345-9d00-404e01e02380
+  registration:
+    # Filter user populations to which the user will belong to while registration
+    filterPopulationByDescription: false
+
+oauth2:
+  client:
+    clientId: 9cb32d5f-1ca4-4c54-a82c-1da6b18fce81
+    clientSecret: y8DrKXsSk.1gvJBia~prk78DOaR8A2Z1sym2luMtl_nw_nyv2GZOl~Kjxb3FYi8_
+    accessTokenUri: https://auth.pingone.ca/8f69b3f5-7764-4345-9d00-404e01e02380/as/token
+    userAuthorizationUri: https://auth.pingone.ca/8f69b3f5-7764-4345-9d00-404e01e02380/as/authorize
+    authorizationGrantType: client_credentials
+
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          pingidentity:
+            client-id: d426c05e-1f94-4aee-8686-56a073c9d38b
+            client-secret: 0dNyJkeGVQ9c-pUxCMar8tnWJkgS7xguJLIf~Qokd7XxH5ddAXo6hKe3Ec7K_uLW
+            provider: pingidentity
+            scope: openid,profile,phone,email,address,p1:reset:userPassword
+            client-authentication-method: post
+            authorization-grant-type: authorization_code
+            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          pingidentity:
+            issuer-uri: https://auth.pingone.ca/8f69b3f5-7764-4345-9d00-404e01e02380/as
+  mvc:
+    favicon:
+      enabled: false
+
